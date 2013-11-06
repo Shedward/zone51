@@ -1,0 +1,1 @@
+[Sat01]  Herb Satter, Exceptional C++/More Exceptional C++
