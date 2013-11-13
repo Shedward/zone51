@@ -9,11 +9,20 @@ GLBatch squareBatch;
 GLShaderManager shaderManager;
 
 GLfloat vVerts[] = {
-    -0.5f, -0.5f, 0.0f,
-    -0.5f,  0.5f, 0.0f,
-     0.5f,  0.5f, 0.0f,
-     0.5f, -0.5f, 0.0f
+    -0.1f, -0.1f, 0.0f,
+    -0.1f,  0.1f, 0.0f,
+     0.2f,  0.1f, 0.0f,
+     0.3f, -0.1f, 0.0f,
+    -0.1f,  0.2f, 0.0f,
+     0.2f,  0.1f, 0.0f,
+     0.1f, -0.2f, 0.0f,
+    -0.3f,  0.1f, 0.0f,
+     0.3f,  0.1f, 0.0f,
+     0.1f, -0.0f, 0.0f
 };
+
+GLfloat PointSizes[2];
+GLfloat PointStep;
 
 void ChangeSize(int w, int h)
 {
@@ -23,11 +32,11 @@ void ChangeSize(int w, int h)
 void SetupRC()
 {
     // Blue background
-    glClearColor(0.0f, 0.0f, 1.0f, 1.0f );
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     shaderManager.InitializeStockShaders();
     // Load up a triangle
 
-    squareBatch.Begin(GL_TRIANGLE_FAN, 4);
+    squareBatch.Begin(GL_TRIANGLE_STRIP, 10);
     squareBatch.CopyVertexData3f(vVerts);
     squareBatch.End();
 }
@@ -35,48 +44,45 @@ void SetupRC()
 void RenderScene(void){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
-    GLfloat vRed[] = {1.0f, 0.0f, 0.0f, 1.0f};
-    shaderManager.UseStockShader(GLT_SHADER_IDENTITY, vRed);
+    GLfloat vWhite[] = {1.0f, 1.0f, 1.0f, 0.0f};
+    shaderManager.UseStockShader(GLT_SHADER_IDENTITY, vWhite);
     squareBatch.Draw();
 
     glutSwapBuffers();
 }
 
-GLfloat blockSize = 0.1;
+void AddToVector(GLfloat *vec, GLsizei vecc, GLfloat *valv, GLsizei valc){
+    for (int i = 0; i < vecc; ++i){
+        for (int j = 0; j < valc; ++j){
+            vec[valc*i+j] += valv[j];
+        }
+    }
+}
 
 void SpecialKeys(int key, int x, int y){
     GLfloat stepSize = 0.025f;
-
-    GLfloat blockX = vVerts[0];
-    GLfloat blockY = vVerts[7];
+    GLfloat delta[] = {0, 0, 0};
 
     if (key == GLUT_KEY_UP)
-        blockY += stepSize;
+        delta[1] = stepSize;
     if (key == GLUT_KEY_DOWN)
-        blockY -= stepSize;
+        delta[1] = -stepSize;
     if (key == GLUT_KEY_LEFT)
-        blockX -= stepSize;
+        delta[0] = -stepSize;
     if (key == GLUT_KEY_RIGHT)
-        blockX += stepSize;
+        delta[0] = stepSize;
 
-    if (blockX < -1.0f) blockX = -1.0f;
-    if (blockX > (1.0f - blockSize * 2)) blockX = 1.0f - blockSize * 2;
-    if (blockY < -1.0f) blockY = -1.0f;
-    if (blockY > (1.0f - blockSize * 2)) blockY = 1.0f - blockSize * 2;
+    AddToVector(vVerts, 10, delta, 3);
 
-    vVerts[0] = blockX;
-    vVerts[1] = blockY - blockSize * 2;
+    if (key == GLUT_KEY_F1){
+        GLfloat pointSize;
+        glGetFloatv(GL_POINT_SIZE, &pointSize);
+        if (++pointSize + PointStep > PointSizes[1])
+            pointSize = PointSizes[0];
+        glPointSize(pointSize);
+    }
 
-    vVerts[3] = blockX + blockSize * 2;
-    vVerts[4] = blockY - blockSize * 2;
-
-    vVerts[6] = blockX + blockSize * 2;
-    vVerts[7] = blockY;
-
-    vVerts[9] = blockX;
-    vVerts[10] = blockY;
-
-    squareBatch.Begin(GL_TRIANGLE_FAN, 4);
+    squareBatch.Begin(GL_POINTS, 10);
     squareBatch.CopyVertexData3f(vVerts);
     squareBatch.End();
     glutPostRedisplay();
@@ -93,6 +99,10 @@ int main(int argc, char *argv[])
     glutReshapeFunc(ChangeSize);
     glutDisplayFunc(RenderScene);
     glutSpecialFunc(SpecialKeys);
+
+    glGetFloatv(GL_POINT_SIZE_RANGE, PointSizes);
+    glGetFloatv(GL_POINT_SIZE_GRANULARITY, &PointStep);
+    glPointSize(PointSizes[0]);
 
     GLenum err = glewInit();
     if (GLEW_OK != err) {
