@@ -80,9 +80,10 @@ void SpecialKeys(int key, int x, int y){
         if (++pointSize + PointStep > PointSizes[1])
             pointSize = PointSizes[0];
         glPointSize(pointSize);
+        glLineWidth(pointSize);
     }
 
-    squareBatch.Begin(GL_POINTS, 10);
+    squareBatch.Begin(GL_LINES, 10);
     squareBatch.CopyVertexData3f(vVerts);
     squareBatch.End();
     glutPostRedisplay();
