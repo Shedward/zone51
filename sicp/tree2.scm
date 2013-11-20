@@ -43,4 +43,13 @@
 	(accum + 0 (map square (filter odd? (enum-tree X)))))
 
 (write (sum-odd-squares X)) (newline)
+
+(define (horner-eval x coeffs)
+	(accum (lambda (this-coeff higher-term) 
+				(+ (* higher-term x) this-coeff))
+		   0
+		   coeffs))
+
+(write (horner-eval 2 (list 1 3 0 5 0 1))) (newline)
+
 (newline)
