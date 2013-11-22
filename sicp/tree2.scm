@@ -52,4 +52,12 @@
 
 (write (horner-eval 2 (list 1 3 0 5 0 1))) (newline)
 
+(define (accum-n op init seqs)
+	(if (null? (car seqs))
+		'()
+		(cons (accum op init (map car seqs))
+			  (accum-n op init (map cdr seqs)))))
+
+(write (accum-n + 0 '((1 2 3 4) (4 5 6 7) (8 9 10 11))))
+
 (newline)
