@@ -58,6 +58,5 @@
 		(cons (accum op init (map car seqs))
 			  (accum-n op init (map cdr seqs)))))
 
-(write (accum-n + 0 '((1 2 3 4) (4 5 6 7) (8 9 10 11))))
-
+(write (accum-n + 0 '((1 2 3 4) (4 5 6 7) (8 9 10 11)))) (newline)
 (newline)
