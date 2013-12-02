@@ -1,3 +1,4 @@
+#lang scheme
 
 (define (list-ref items n)
 	(if (= n 0)
@@ -38,7 +39,7 @@
 (define (filter pred head . tail)
 	(cond 
 		((null? tail) 	tail)
-		((pred head) 	(cons head (apply (filter pred) tail))
+		((pred head) 	(cons head (apply (filter pred) tail)))
 		(else 			(filter pred tail))))
 
 (newline)

@@ -1,9 +1,11 @@
-(define (abs x)
+#lang scheme
+
+(define (abs1 x)
 	(cond ((> x 0) x)
 		  ((= x 0) 0)
 		  ((< x 0) (- x))))
 
-(define (abs x)
+(define (abs2 x)
 	(cond ((< x 0) (- x))
 		  (else x)))
 

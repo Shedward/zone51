@@ -1,3 +1,5 @@
+#lang scheme
+
 (define (scale-list items factor)
 	(if (null? items)
 		items

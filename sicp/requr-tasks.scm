@@ -1,3 +1,5 @@
+#lang scheme
+
 (define (f n)
 	(if (< n 3)
 		n
@@ -10,7 +12,7 @@
 
 (f 10)
 
-(define (f n)
+(define (f2 n)
 	(define (f-iter it a b c)
 		(if (< it n)
 			(f-iter (+ it 1) 
@@ -22,4 +24,4 @@
 		n
 		(f-iter 3 1 2 3)))
 
-(f 10)
+(f2 10)

@@ -1,3 +1,4 @@
+#lang scheme
 
 (define (accum op init seq)
 	(if (null? seq)

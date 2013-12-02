@@ -1,6 +1,10 @@
+#lang scheme
+
 (define (reminder a b)
 	(floor (/ a b)))
 
+(define (square x)
+	(* x x))
 
 (define (expmod base exp m)
 	(cond ((= exp 0) 1)
@@ -24,14 +28,17 @@
 
 (fast-prime? 2558 10)
 
-(define (timed-prime-test) n
+(define (timed-prime-test n)
 	(newline)
 	(display n)
-	(start-prime-test n (runtime)))
+	(start-prime-test n (current-milliseconds)))
+
+(define prime? fast-prime?)
 
 (define (start-prime-test n start-time)
 	(if (prime? n)
-		(report-prime (- (runtime) start-time))))
+		(report-prime (- (current-milliseconds) start-time))
+		null))
 
 (define (report-prime elapsed-time)
 	(display " *** ")

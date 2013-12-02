@@ -1,3 +1,8 @@
+#lang scheme
+
+(define (square x)
+	(* x x))
+
 (+ 2 2)
 
 (define (compose f g)

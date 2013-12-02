@@ -1,3 +1,4 @@
+#lang scheme
 
 (define x (cons (list 1 2) (list 3 4)))
 
@@ -21,12 +22,12 @@
 (write (cdr (cdr (cdr (cdr (cdr (cdr (cons 1 (cons 2 (cons 3 (cons 4 (cons 5 (cons 6 7)))))))))))))
 (newline)
 
-(define x (list 1 2 3))
-(define y (list 4 5 6))
+(define x2 (list 1 2 3))
+(define y2 (list 4 5 6))
 
-(write (append x y)) ; (1 2 3 4 5 6)
-(write (cons x y)) ; ((1 2 3) 4 5 6)
-(write (list x y)) ; ((1 2 3) (4 5 6))
+(write (append x2 y2)) ; (1 2 3 4 5 6)
+(write (cons x2 y2)) ; ((1 2 3) 4 5 6)
+(write (list x2 y2)) ; ((1 2 3) (4 5 6))
 (newline)
 
 (define (reverse items)
@@ -94,7 +95,8 @@
 	(define (length branch)
 		(if (pair? (struct branch))
 			(cons (+ (length branch) (car (length (left (struct branch)))))
-				  (+ (length branch) (cdr (length (right (struct branch)))))))
+				  (+ (length branch) (cdr (length (right (struct branch))))))
+			null)
 		(length branch))
 	(* (car (length (left tree))) (total-weight (struct (left tree)))
 	   (car (length (right tree))) (total-weight (struct (right tree))))
@@ -111,14 +113,14 @@
 	(let ((m (moment tree)))
 		(= (car m) (cdr m))))
 
-(define X (make-mobile 
+(define X2 (make-mobile 
 			(make-branch 1 
 				(make-mobile (make-branch 2 3)
 				      		 (make-branch 4 5)))
 			(make-branch 6 7)))
 
-(write X) (newline)
-(write (total-weight X)) (newline)
-(write (moment X))
+(write X2) (newline)
+(write (total-weight X2)) (newline)
+(write (moment X2))
 
 (newline)

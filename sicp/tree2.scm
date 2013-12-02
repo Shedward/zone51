@@ -1,3 +1,5 @@
+#lang scheme
+
 (define (sum-odd-squares tree)
   (cond ((null? tree) 0)
   		((not (pair? tree))
@@ -39,10 +41,10 @@
 (define (square x)
 	(* x x))
 
-(define (sum-odd-squares tree)
+(define (sum-odd-squares2 tree)
 	(accum + 0 (map square (filter odd? (enum-tree X)))))
 
-(write (sum-odd-squares X)) (newline)
+(write (sum-odd-squares2 X)) (newline)
 
 (define (horner-eval x coeffs)
 	(accum (lambda (this-coeff higher-term) 

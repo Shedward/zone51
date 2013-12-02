@@ -1,3 +1,5 @@
+#lang scheme
+
 (define (sum term a next b)
 	(if (<= a b)	
 		(+ (term a) (sum term (next a) next b))
@@ -43,5 +45,3 @@
 (define (fact a b)
 	(rd * a b))
 (fact 1 10)
-
-(define (fact n) (prod)) 

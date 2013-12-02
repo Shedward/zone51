@@ -1,3 +1,8 @@
+#lang scheme
+
+(define (square x)
+	(* x x))
+
 '----main-------------
 (define (sqrt-iter guess x)
 	(if (good-enough? guess x)
@@ -43,9 +48,9 @@
 (define (sqrt3-iter guess x)
 	(if (good-enough? guess x)
 		guess
-		(sqrt3-iter (improve guess x) x)))
+		(sqrt3-iter (improve2 guess x) x)))
 
-(define (improve x y)
+(define (improve2 x y)
 	(/ (+ (/ x (* y y)) (* 2 y))) 3)
 
 (sqrt 1024)

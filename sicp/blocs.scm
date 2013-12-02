@@ -1,4 +1,9 @@
+#lang scheme
+
 '---Block--------
+
+(define (square x)
+	(* x x))
 
 (define (sqrt x)
 	(define (sqrt-iter guess x)
@@ -21,7 +26,7 @@
 
 '---Easy---------
 
-(define (sqrt x)
+(define (sqrt2 x)
 	(define (sqrt-iter guess)
 		(if (good-enough? guess)
 			guess
@@ -38,4 +43,4 @@
 
 	(sqrt-iter 1.0))
 
-(sqrt 1024)
+(sqrt2 1024)
