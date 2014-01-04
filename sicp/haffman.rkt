@@ -84,4 +84,6 @@
 		(append (encode-symbol (car message) tree)
 			    (encode (cdr message) tree))))
 
-(define encode-symbol null)
+(define (encode-symbol sym tree)
+	(define (encode-i seq tree)
+		))
