@@ -12,6 +12,18 @@ public:
 	matrixs_size_mismatch(const std::string& str) noexcept: std::logic_error(str) {}
 };
 
+template<typename T>
+class Matrix;
+
+template<typename T>
+void for_each(Matrix<T> &mat, std::function<void(uint r, uint c, T& cell)> fun) {
+	for(unsigned r = 0; r < mat.rows(); ++r) {
+		for(unsigned c = 0; c < mat.cols(); ++c) {
+			fun(r, c, mat(r, c));
+		}
+	}
+}
+
 template <typename T>
 class Matrix {
 public:
@@ -20,11 +32,9 @@ public:
 	: rows_{rows}, cols_{cols},
 	  mat_(new T[cols*rows]) 
 	{
-		for(unsigned r = 0; r < rows; ++r) {
-			for(unsigned c = 0; c < cols; ++c) {
-				cell(r, c) = filler(r, c);
-			}
-		}
+		for_each(*this, [&filler](uint r, uint c, T& cell){
+			cell = filler(r, c);
+		});
 	}
 
 	Matrix(uint rows = 1, uint cols = 1, const T &def_value = T())
@@ -41,11 +51,10 @@ public:
 		cols_ = val.cols();
 		rows_ = val.rows();
 
-		for(unsigned r = 0; r < rows(); ++r) {
-			for(unsigned c = 0; c < cols(); ++c) {
-				cell(r, c) = val(r, c);
-			}
-		}
+		for_each(*this, [&val](uint r, uint c, T &cell){
+			cell = val(r, c);
+		});
+
 		return *this;
 	}
 
@@ -69,11 +78,9 @@ private:
 
 template<typename T>
 std::istream& operator>>(std::istream &in, Matrix<T> &mat){
-	for(unsigned c = 0; c < mat.cols(); ++c) {
-		for(unsigned r = 0; r < mat.rows(); ++r) {
-			in >> mat(c, r);
-		}
-	}
+	for_each(mat, [&in](uint r, uint c, T &cell){
+		in >> cell;
+	});
 	return in;
 }
 
@@ -95,16 +102,23 @@ auto operator+(const Matrix<T> &lhs, const Matrix<U> &rhs) -> Matrix<decltype(T(
 	uint max_cols = std::max(lhs.cols(), rhs.cols());
 
 	return Matrix<decltype(T() + U())>(max_rows, max_cols, [&](uint r, uint c){
-		T lhs_cell = (c > lhs.cols() or r > lhs.rows()) ? T{} : lhs(r, c);
-		U rhs_cell = (c > rhs.cols() or r > rhs.rows()) ? U{} : rhs(r, c);
+		T lhs_cell = (c > lhs.cols() or r > lhs.rows()) ? T() : lhs(r, c);
+		U rhs_cell = (c > rhs.cols() or r > rhs.rows()) ? U() : rhs(r, c);
 		return lhs_cell + rhs_cell;
 	});
 }
 
-// template<typename T, typename U>
-// Matrix&& operator+(Matrix &lhs, Matrix &rhs) {
+template<typename T, typename U>
+auto operator+(const Matrix<T> &lhs, const U &val) -> Matrix<decltype(T() + U())> 
+{
+	Matrix<decltype(T() + U())> res = lhs;
 	
-// }
+	for_each(res, [&val](uint r, uint c, T& cell){
+		cell += val;
+	});
+
+	return res;
+}
 
 int main(int argc, char const *argv[])
 {
@@ -112,11 +126,12 @@ int main(int argc, char const *argv[])
 		return r + c;
 	}));
 
-	Matrix<Matrix<float>> mat2(4, 3,  Matrix<float>(3, 3, 2.5f));
+	// Matrix<Matrix<float>> mat2(4, 3,  Matrix<float>(3, 3, 2.5f));
 
 	std::cout << mat1 << std::endl;
-	std::cout << mat2 << std::endl;
+	// std::cout << mat2 << std::endl;
 	std::cout << std::endl;
-	std::cout << mat1 + mat2 << std::endl;
+	//std::cout << mat1 + mat2 << std::endl;
 	return 0;
 }
+
