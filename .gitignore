@@ -1,8 +1,3 @@
-*
-!*.*
-**.bin
-**.inc
-**/build
-**.o
 **.autosave
 **.user
+**.o
