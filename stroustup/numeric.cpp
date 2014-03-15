@@ -56,5 +56,20 @@ int main(int argc, char const *argv[])
 	IntVec res4 = pv[mask{0,0,0,1,1,1,0,0,1}];
 	print(res4);
 
+
+	IntVec mat0 = {
+		11, 12, 13, 14, 15,
+		21, 22, 23, 24, 25,
+		31, 32, 33, 34, 35,
+	};
+	print_mat(mat0, 3, 5);
+	IntVec col2 = mat0[std::slice(1,3,5)];
+	print(col2);
+	IntVec row2 = mat0[std::slice(5,5,1)];
+	print(row2);
+
+	IntVec submat0 = mat0[std::gslice(5*1+1, dem{2,3}, dem{5,1})];
+	print(submat0);
+	print_mat(submat0, 2, 3);
 	return 0; 
 }
