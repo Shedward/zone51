@@ -71,5 +71,22 @@ int main(int argc, char const *argv[])
 	IntVec submat0 = mat0[std::gslice(5*1+1, dem{2,3}, dem{5,1})];
 	print(submat0);
 	print_mat(submat0, 2, 3);
-	return 0; 
+
+	print(pv);
+	std::cout << std::accumulate(std::begin(pv), std::end(pv), 0) << std::endl;
+	std::cout << std::inner_product(std::begin(pv), std::end(pv), std::begin(pv),0) << std::endl;
+
+	IntVec sums(pv.size());
+	std::partial_sum(std::begin(pv), std::end(pv), std::begin(sums));
+	print(sums);
+
+
+	IntVec diff(pv.size());
+	std::adjacent_difference(std::begin(pv), std::end(pv), std::begin(diff));
+	print(diff);
+
+	IntVec iota(pv.size());
+	std::iota(std::begin(iota)+5, std::end(iota),20);
+	print(iota);
+	return 0;
 }
