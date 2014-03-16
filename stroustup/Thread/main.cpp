@@ -36,20 +36,38 @@ void writeln() {
 std::recursive_mutex cout_mutex;
 template<typename Arg, typename... Args>
 void writeln(Arg a, Args... tail) {
-    cout_mutex.lock();
+    std::lock_guard<std::recursive_mutex> l(cout_mutex);
     std::cout << a;
     writeln(tail...);
-    cout_mutex.unlock();
 }
+
+class TestClass {
+private:
+    std::once_flag initialized;
+    void Init() { a = 0; b = 9; }
+    int a;
+    int b;
+    int z;
+public:
+    TestClass(int z) : z(z) {
+        std::call_once(initialized,std::mem_fn(&TestClass::Init), this);
+    }
+    TestClass(TestClass&&) = default;
+};
 
 
 int main(int argc, char const *argv[]) {
     //thread_test();
     std::vector<std::thread> threads;
+    auto test_classes = std::make_shared<std::vector<TestClass>>();
     auto writechln = &writeln<std::string,char,char,char,char,char,char,int>;
     for (int i = 0; i < 10; ++i) {
         threads.emplace_back(writechln, "Hell",'o',' ','w','o','r','l',12);
+        threads.emplace_back([test_classes] {
+            test_classes->emplace_back();
+        });
     }
+    std::cout << test_classes->size() << std::endl;
     std::for_each(threads.begin(), threads.end(),
                   std::mem_fn(&std::thread::join));
     return 0;
