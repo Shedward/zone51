@@ -3,8 +3,9 @@
 #include <memory>
 #include <vector>
 #include <algorithm>
+#include <mutex>
 
-int main(int argc, char const *argv[]) {
+void thread_test() {
     auto result = std::make_shared<std::vector<int>>();
     std::vector<std::thread> threads;
     for (int i = 0; i < 10; ++i) {
@@ -26,5 +27,30 @@ int main(int argc, char const *argv[]) {
         std::cout << val << ' ';
     }
     std::cout << std::endl;
+}
+
+void writeln() {
+    std::cout << std::endl;
+}
+
+std::recursive_mutex cout_mutex;
+template<typename Arg, typename... Args>
+void writeln(Arg a, Args... tail) {
+    cout_mutex.lock();
+    std::cout << a;
+    writeln(tail...);
+    cout_mutex.unlock();
+}
+
+
+int main(int argc, char const *argv[]) {
+    //thread_test();
+    std::vector<std::thread> threads;
+    auto writechln = &writeln<std::string,char,char,char,char,char,char,int>;
+    for (int i = 0; i < 10; ++i) {
+        threads.emplace_back(writechln, "Hell",'o',' ','w','o','r','l',12);
+    }
+    std::for_each(threads.begin(), threads.end(),
+                  std::mem_fn(&std::thread::join));
     return 0;
 }
