@@ -1,6 +1,7 @@
 #include <string>
 #include <cassert>
 #include <cstring>
+#include <iostream>
 
 struct ci_char_traits : public std::char_traits<char> {
 	static bool eq(char lhs, char rhs) {
@@ -33,4 +34,8 @@ int main() {
 	assert(s == "ABCDE");
 	assert(strcmp(s.c_str(), "AbCdE") == 0);
 	assert(strcmp(s.c_str(), "abcde") != 0);
+
+	// std::cout << ci_string << std::endl;  // no operator<< for ci_string
+	std::string a = "str";
+	// string c = a + s;  // no operator+
 }
