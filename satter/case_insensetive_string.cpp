@@ -1,29 +1,31 @@
-
 #include <string>
 #include <cassert>
 #include <cstring>
 
 struct ci_char_traits : public std::char_traits<char> {
-	static bool eq(char c1, char c2)
-		{ return toupper(c1) == toupper(c2); }
-	static bool lt(char c1, char c2)
-		{ return toupper(c1) > toupper(c2); }
-	static int compare( const char *c1, const char *c2, size_t n){
-		int d;
-		for (int i = 0; i < n; ++i) {
-			d = toupper(c1[i]) - toupper(c2[i]);
-			if (d > 0) {
-				return 1;
-			} else if (d < 0) {
-				return -1;
-			} else {
-				return 0;
-			}
+	static bool eq(char lhs, char rhs) {
+		return toupper(lhs) == toupper(rhs);
+	}
+	static bool lt(char lhs, char rhs) {
+		return toupper(lhs) < toupper(rhs);
+	}
+	static const char* find(const char* s, int n, char a) {
+		while (n-- > 0 && toupper(*s) != toupper(a)) {
+			++s;
 		}
+		return n >= 0 ? s : 0;
+	}
+	static int compare(const char* p, const char* q, size_t n) {
+		while (n--) {
+			if (!eq(*p, *q)) return lt(*p,*q); 
+			++p;
+			++q;
+		}
+		return 0;
 	}
 };
 
-typedef std::basic_string<char, ci_char_traits> ci_string;
+using ci_string = std::basic_string<char, ci_char_traits>;
 
 int main() {
 	ci_string s("AbCdE");
