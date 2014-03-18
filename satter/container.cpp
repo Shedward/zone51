@@ -39,7 +39,7 @@ private:
 };
 
 class B {};
-class D : public B {};
+class D : public B {};`
 
 int main(int argc, char const *argv[])
 {
