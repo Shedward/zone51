@@ -63,3 +63,50 @@
 (s 'how-many-calls?)
 (s 'reset)
 (s 'how-many-calls?)
+
+
+(display " -- 3.3, 3.4 -- \n")
+
+(define (call-cops) (display "Call police!\n"))
+
+(define (make-protected-acc pass balance)
+
+  (define trying 7)
+  (define (check-pass p proc)
+  	(if (eq? pass p)
+  		(begin (set! trying 7) proc)
+  		(if (= trying 0) 
+  			(call-cops)
+  			(begin (set! trying (- trying 1))
+  				   "Wrong password"))))
+
+  (define (withdraw p amount)
+  	(check-pass p
+      (if (>= balance amount)
+          (begin (set! balance (- balance amount))
+                 balance)
+          "Not enought money")))
+
+  (define (deposit p amount)
+  	(check-pass p
+  	  (begin 
+        (set! balance (+ balance amount))
+        balance)))
+
+  (define (dispatch m)
+    (cond ((eq? m 'withdraw) withdraw)
+          ((eq? m 'deposit) deposit)
+          (else (error "Unknown command -- MAKE-ACCOUNT"
+                       m))))
+  dispatch)
+
+(define acc (make-protected-acc 'qwerty 10000))
+((acc 'withdraw) 'qwerty 500)
+((acc 'withdraw) '123 200)
+((acc 'withdraw) 'password 200)
+((acc 'withdraw) '321 200)
+((acc 'withdraw) '777 200)
+((acc 'withdraw) '123 200)
+((acc 'withdraw) '123 200)
+((acc 'withdraw) '123 200)
+((acc 'withdraw) '123 200)
