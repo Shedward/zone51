@@ -32,3 +32,16 @@
                        m))))
   dispatch)
 
+
+(display " -- 3.1 -- \n")
+
+(define (make-accum value)
+	(lambda (amount)
+		(begin (set! value (+ value amount))
+			   value)))
+
+(define accum1 (make-accum 10))
+(accum1 3)
+(accum1 50)
+
+
