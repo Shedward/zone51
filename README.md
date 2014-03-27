@@ -5,3 +5,5 @@
 [Strous00] Stroustrup Bjarne. The C++ Programming Language // 2013
 
 [Dew00] Stephen C. Dewhurst. C++ Common Knowledge // 2012
+
+[Porub00] Порублев И. П. Ставровский А. Б. Алгоритмы и программы. Решение олимпиадных задач // 2007
