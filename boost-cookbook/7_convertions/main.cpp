@@ -1,11 +1,13 @@
+#include <algorithm>
+#include <array>
+#include <assert.h>
 #include <iostream>
-#include <boost/lexical_cast.hpp>
+#include <iterator>
 #include <locale>
 #include <vector>
-#include <algorithm>
-#include <assert.h>
-#include <array>
-#include <iterator>
+
+#include <boost/lexical_cast.hpp>
+#include <boost/numeric/conversion/cast.hpp>
 
 template <typename T, typename ContainerT>
 std::vector<T> parse(const ContainerT& cont) {
@@ -15,6 +17,29 @@ std::vector<T> parse(const ContainerT& cont) {
     std::transform(cont.begin(), cont.end(),
                    std::back_inserter(result), lex_cast);
     return result;
+}
+
+template <typename SourceT, class TargetT>
+struct mythow_overflow_handler {
+    void operator ()(boost::numeric::range_check_result r) {
+        if (r != boost::numeric::cInRange) {
+            throw std::logic_error("Not in range!");
+        }
+    }
+};
+
+template <typename TargetT, class SourceT>
+TargetT my_numeric_cast(const SourceT& in) {
+    using namespace boost;
+    using conv_traits = numeric::conversion_traits<TargetT, SourceT>;
+    using cast_traits = numeric::numeric_cast_traits<TargetT, SourceT>;
+    using converter =
+        numeric::converter<TargetT,
+                           SourceT,
+                           conv_traits,
+                           mythow_overflow_handler<SourceT,TargetT>>;
+    return converter::convert(in);
+
 }
 
 int main(int argc, char* argv[]) {
@@ -58,6 +83,18 @@ int main(int argc, char* argv[]) {
 
     std::copy(nums.begin(), nums.end(),
               std::ostream_iterator<double>(std::cout,"\n"));
+
+    std::vector<long> numbers = { 1, 2, 3, -50, 65535, -65535, 1e10 };
+    unsigned num;
+    for (long n : numbers) {
+        try {
+            num = boost::numeric_cast<unsigned>(n);
+        } catch (const boost::numeric::positive_overflow &e) {
+            std::cout << "Pos overflow with " << n << " " << e.what() << std::endl;
+        } catch (const boost::numeric::negative_overflow &e) {
+            std::cout << "Neg overflow " << n << " " << e.what() << std::endl;
+        }
+    }
 
     return 0;
 }
