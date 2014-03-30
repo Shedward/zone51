@@ -46,10 +46,9 @@ work_queue g_queue;
 void do_nothing() {
     static boost::mutex mutex;
     boost::lock_guard<boost::mutex> lock(mutex);
-    std::cout << "Done nothing at " << boost::this_thread::get_id() << "\n";
 }
 
-const std::size_t tests_task_count = 50;
+const std::size_t tests_task_count = 3000000;
 
 void pusher() {
     for (std::size_t i = 0; i < tests_task_count; ++i) {
@@ -63,7 +62,7 @@ void popper_sync() {
     }
 }
 
-const std::size_t pair_count = 5;
+const std::size_t pair_count = 3;
 
 int main() {
     std::vector<boost::thread> threads;
