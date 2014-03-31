@@ -13,7 +13,7 @@ else()
         message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
-find_package(Boost 1.53 REQUIRED)
+find_package(Boost 1.53 COMPONENTS regex program_options REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
 file(GLOB CPP_FILES "*.cpp")
