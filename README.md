@@ -11,3 +11,5 @@
 [Boost00] Boost C++ Application Development Cookbook // 2013
 
 [Haskell00] Душкин Р. В. Функциональное программирование на языке Haskell // 2006
+
+[ObjC00] Learn Objective-C on the Mac. 2nd edition. // 2012
