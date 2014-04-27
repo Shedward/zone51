@@ -7,6 +7,7 @@
         {
             DataTime();
             Checking();
+            ImplicitTyping();
             Console.ReadKey();
         }
 
@@ -32,6 +33,19 @@
             {
                 Console.WriteLine(e.Message);
             }
+        }
+
+        private static void ImplicitTyping()
+        {
+            var i = 0;
+            var b = true;
+            var s = "Hello";
+            var f = 3.33;
+
+            Console.WriteLine("i is {0}", i.GetType().Name);
+            Console.WriteLine("b is {0}", b.GetType().Name);
+            Console.WriteLine("s is {0}", s.GetType().Name);
+            Console.WriteLine("f is {0}", f.GetType().Name);
         }
     }
 }
