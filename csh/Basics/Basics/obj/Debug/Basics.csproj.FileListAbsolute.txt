@@ -1,5 +1,0 @@
-E:\doc\Projects\zone51\csh\Basics\Basics\bin\Debug\Basics.exe.config
-E:\doc\Projects\zone51\csh\Basics\Basics\bin\Debug\Basics.exe
-E:\doc\Projects\zone51\csh\Basics\Basics\bin\Debug\Basics.pdb
-E:\doc\Projects\zone51\csh\Basics\Basics\obj\Debug\Basics.exe
-E:\doc\Projects\zone51\csh\Basics\Basics\obj\Debug\Basics.pdb
