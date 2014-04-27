@@ -1,6 +1,7 @@
 ﻿namespace Basics
 {
     using System;
+    using System.Linq;
     class Program
     {
         static void Main(string[] args)
@@ -8,6 +9,7 @@
             DataTime();
             Checking();
             ImplicitTyping();
+            LINQ();
             Console.ReadKey();
         }
 
@@ -46,6 +48,23 @@
             Console.WriteLine("b is {0}", b.GetType().Name);
             Console.WriteLine("s is {0}", s.GetType().Name);
             Console.WriteLine("f is {0}", f.GetType().Name);
+        }
+
+        private static void LINQ()
+        {
+            int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var subset = from i in nums
+                         where i % 2 == 0
+                         select i;
+            Console.Write("Even values: ");
+            foreach (var i in subset)
+            {
+                Console.Write("{0} ", i);
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("subset is a: {0}", subset.GetType().Name);
+            Console.WriteLine("subset is defined in: {0}", subset.GetType().Namespace);
         }
     }
 }
