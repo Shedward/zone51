@@ -13,3 +13,5 @@
 [Haskell00] Душкин Р. В. Функциональное программирование на языке Haskell // 2006
 
 [ObjC00] Learn Objective-C on the Mac. 2nd edition. // 2012
+
+[RWHaskell] Bryan O'Sullivan, John Goerzen & Don Stewart. Real World Haskell // 2009
