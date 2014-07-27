@@ -1,3 +1,6 @@
+module GlobRegex (matchesGlob) where
+
+import Text.Regex.Posix
 
 globToRegex' :: String -> String
 globToRegex' ""             = ""
@@ -16,3 +19,6 @@ charClass :: String -> String
 charClass (']':cs) = ']' : globToRegex' cs
 charClass (c:cs)   = c : charClass cs
 charClass []       = error "Unterminated character class"
+
+matchesGlob :: String -> String -> Bool
+matchesGlob pat name = name =~ globToRegex' pat :: Bool
