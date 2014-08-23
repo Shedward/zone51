@@ -5,7 +5,7 @@ import Text.Regex.Posix
 globToRegex' :: String -> String
 globToRegex' ""             = ""
 globToRegex' ('?':c:cs)     = ".*" ++ c : globToRegex' cs
-globToRegex' ('[':'!':c:cs) = "[^" ++ globToRegex' cs
+globToRegex' ('[':'!':_:cs) = "[^" ++ globToRegex' cs
 globToRegex' ('[':c:cs)     = '[' : c : charClass cs
 globToRegex' ('[':_)        = error "Unterminated character class"
 globToRegex' (c:cs)         = escape c ++ globToRegex' cs
