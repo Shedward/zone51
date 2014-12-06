@@ -1,6 +1,7 @@
 #include <iostream>
 #include <complex>
 #include <vector>
+#include <typeinfo>
 
 template<typename LT, typename RT>
 auto fun(LT& lhs, RT& rhs) {
@@ -27,6 +28,8 @@ int main() {
     std::vector<int> e = {1, 2, 3, 4};
     authAndAccess(e, 2) = 11;
     std::cout << e[2] << std::endl;
+
+    std::cout << typeid(fun(b,c)).name() << std::endl;
 
     const int f[] = {1, 2, 3, 4};
     // authAndAccess(f, 2) = 12; // Throw a compilation error
