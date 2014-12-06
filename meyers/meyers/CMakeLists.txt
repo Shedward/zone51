@@ -1,0 +1,7 @@
+project(meyers)
+cmake_minimum_required(VERSION 2.8)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+aux_source_directory(. SRC_LIST)
+add_executable(Basics basics.cpp)
+add_executable(TypeDeduction type_deduction.cpp)
+add_executable(DeclType decltype.cpp)
