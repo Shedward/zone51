@@ -8,3 +8,8 @@ add_executable(DeclType decltype.cpp)
 add_executable(Modern modern.cpp)
 add_executable(Modifiers modifiers.cpp)
 add_executable(SmartPointers smartpointers.cpp)
+add_executable(Functional functional.cpp)
+
+find_package(Threads)
+add_executable(threads threads.cpp)
+target_link_libraries(threads ${CMAKE_THREAD_LIBS_INIT})

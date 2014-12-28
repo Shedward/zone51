@@ -62,24 +62,24 @@ public:
 };
 }
 
-class BookQuery {
-public:
-    BookQuery(const std::string& q) {
+//class BookQuery {
+//public:
+//    BookQuery(const std::string& q) {
 
-    }
+//    }
 
-private:
-    std::vector<std::string> tokenize(const std::string& q) {
-        std::vector<std::string> tokens;
-        const char* s = q.c_str();
+//private:
+//    std::vector<std::string> tokenize(const std::string& q) {
+//        std::vector<std::string> tokens;
+//        const char* s = q.c_str();
 
-        while (*s) {
-            while (*s == ' ') ++s;
-            if (*s == '(' || *s == ')')
-                tokens.push_back(*s++ );
-        }
-    }
-};
+//        while (*s) {
+//            while (*s == ' ') ++s;
+//            if (*s == '(' || *s == ')')
+//                tokens.push_back(*s++ );
+//        }
+//    }
+//};
 
 
 
@@ -87,7 +87,7 @@ int main() {
     using namespace Specifications;
 
     auto pureQuery = ! BookSpec::ByTitle("Of Mice and Men") && BookSpec::ByYear(1934);
-    auto parseQuery = BookQuery("(and author!=\"Of Mice and Men\") year=1934)");
+    // auto parseQuery = BookQuery("(and author!=\"Of Mice and Men\") year=1934)");
 
     std::vector<Book> testBooks = {
         { "Ulysses", "James Joyce", 1934 },
@@ -100,6 +100,4 @@ int main() {
             std::cout << b.Title << std::endl;
         }
     }
-
-    auto q = Query<BookSpec>("Author");
 }
