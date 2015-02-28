@@ -1,11 +1,13 @@
 CONFIG += link_pkgconfig
 
-PKGCONFIG += gl
-
-LIBS += -lglut -lGLEW -lGLU
-
 SOURCES += \
     main.cpp
+
+CONFIG += link_pkgconfig
+
+PKGCONFIG += gl glfw3 glu glew
+
+LIBS += -lglut
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../GLTools/release/ -lGLTools
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../GLTools/debug/ -lGLTools

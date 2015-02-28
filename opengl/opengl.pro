@@ -2,4 +2,5 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     GLTools \
-    00_HelloWorld
+    00-HelloWorld \
+    01-HelloGLTW

@@ -6,9 +6,9 @@ CONFIG += staticlib
 
 CONFIG += link_pkgconfig
 
-PKGCONFIG += gl
+PKGCONFIG += gl glew glu
 
-LIBS += -lglut -lgltools -lGLEW -lGLU
+LIBS += -lglut
 
 unix {
     target.path = /usr/lib
