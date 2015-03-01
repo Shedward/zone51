@@ -3,8 +3,6 @@ CONFIG += link_pkgconfig
 SOURCES += \
     main.cpp
 
-CONFIG += link_pkgconfig
-
 PKGCONFIG += gl glfw3 glu glew
 
 LIBS += -lglut
