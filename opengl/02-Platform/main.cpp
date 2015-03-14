@@ -1,29 +1,21 @@
 #include <platform.h>
+#include <unistd.h>
+#include <math.h>
+
+#include <math.h>
 
 class PlatformTest : public platform {
     void render(GLFWwindow *window) override {
-        float ratio;
-        int width, height;
-        glfwGetFramebufferSize(window, &width, &height);
-        ratio = width / (float) height;
-        glViewport(0, 0, width, height);
+        double currentTime = glfwGetTime() * 10;
+
+        glClearColor(
+            (float) sin(currentTime) * 0.5f + 0.5f,
+            (float) sin(currentTime + 2.0/3.0 * M_PI) * 0.5f + 0.5f,
+            (float) sin(currentTime - 2.0/3.0 * M_PI) * 0.5f + 0.5f,
+            1.0f
+        );
+
         glClear(GL_COLOR_BUFFER_BIT);
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        glOrtho(-ratio, ratio, -1.f, -1.f, 1.f, -1.f);
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
-        glRotatef((float) glfwGetTime() * 50.f, 0.f, 0.f, 1.f);
-        glBegin(GL_TRIANGLES);
-        glColor3f(1.f, 0.f, 0.f);
-        glVertex3f(-0.6f, -0.4f, 0.f);
-        glColor3f(0.f, 1.f, 0.f);
-        glVertex3f(0.6f, -0.4f, 0.f);
-        glColor3f(0.f, 0.f, 1.f);
-        glVertex3f(0.f, 0.6f, 0.f);
-        glEnd();
-        glfwSwapBuffers(window);
-        glfwPollEvents();
     }
 };
 

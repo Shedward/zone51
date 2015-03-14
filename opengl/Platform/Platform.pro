@@ -4,7 +4,7 @@ TARGET = Platform
 TEMPLATE = lib
 CONFIG += staticlib
 
-LIBS += -lglfw -lm -lGL -lGLU
+LIBS += -lglfw -lm -lGL -lGLU  -lGLEW
 
 HEADERS += \
     platform.h

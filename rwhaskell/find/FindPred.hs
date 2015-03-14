@@ -39,7 +39,6 @@ comb op l r x = l x `op` r x
 
 test op sel val p = sel p `op` val
 
-(.==) :: Eq GHC.IO.MaskingState
 (.==) = test (==)
 
 (.>) = test (>)

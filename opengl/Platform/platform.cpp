@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 platform::platform()
 {
@@ -32,10 +33,15 @@ void platform::run()
     }
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);
+
     glfwSetKeyCallback(window, key_callback);
+
     while (!glfwWindowShouldClose(window))
     {
         render(window);
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+        usleep(5000);
     }
     glfwDestroyWindow(window);
     glfwTerminate();
