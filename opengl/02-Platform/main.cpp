@@ -5,7 +5,7 @@
 #include <math.h>
 
 class PlatformTest : public platform {
-    void render(GLFWwindow *window) override {
+    void OnRender(GLFWwindow *window) override {
         double currentTime = glfwGetTime() * 10;
 
         glClearColor(

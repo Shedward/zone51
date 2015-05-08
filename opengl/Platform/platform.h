@@ -9,7 +9,8 @@ class platform
 public:
     platform();
     void run();
-    virtual void render(GLFWwindow* window) = 0;
+    virtual void OnInit(GLFWwindow* window) { }
+    virtual void OnRender(GLFWwindow* window) = 0;
 };
 
 #endif // PLATFORM_H
