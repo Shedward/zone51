@@ -1,15 +1,18 @@
 $CC=gcc
 $CFLAGS=-Wall
 
-.SUFFIXIES: .cpp .o .tests.c
+.SUFFIXIES: .cpp .o _tests.c
+
+tests: $(patsubst %,run_%,$(basename $(wildcard *_tests.c))) | clean
 
 clean:
-	rm -rf *.o *.test *.bin
+	rm -rf *.o *.tests
 
 %.o : %.c
 	$(CC) -g -O -c $(CFLAGS) $*.c -o $*.o
 
-%.tests : %.tests.c %.o
-	$(CC) $*.o  $*.tests.c $(CFLAGS) -o $*.tests
+%_tests : %_tests.c %.o
+	$(CC) -g $*.o  $*_tests.c $(CFLAGS) -o $*.tests
+
+run_%_tests : %_tests
 	./$*.tests
-	rm $*.tests
