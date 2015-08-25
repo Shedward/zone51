@@ -71,6 +71,19 @@ void test_insert_remove()
 	insert_after(last_item(ab_list), b_list);
 
 	assert(is_list_eq_str(ab_list, ab));
+
+	destroy_list(ab_list);
+	destroy_list(b_list);
+
+	LinkedList *c_list = create_list_from_str(a);
+	LinkedList *b2_list = create_list_from_str(b);
+	
+	insert_after(next_nth(c_list, 3), b2_list);
+
+	assert(is_list_eq_str(c_list, c));
+
+	destroy_list(c_list);
+	destroy_list(b2_list);
 }
 
 void test_last_and_nth_item()
@@ -87,6 +100,8 @@ void test_last_and_nth_item()
 
 	LinkedList *next_to_last = next_nth(last, 1);
 	assert(next_to_last == NULL);
+
+	destroy_list(x_list);
 }
 
 int main(int argc, char** argv)

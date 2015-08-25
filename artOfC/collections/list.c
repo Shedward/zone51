@@ -45,8 +45,6 @@ LinkedList* create_list(void* data, size_t size, int tag, LinkedListResult *resu
 
 void destroy_list(LinkedList* item)
 {
-	item->ref_count--;
-
 	while (item && item->ref_count == 0)
 	{
 		if (item->data)
@@ -58,8 +56,6 @@ void destroy_list(LinkedList* item)
 		item = next(item);
 
 		free(item_to_remove);
-
-		item->ref_count--;
 	}
 }
 
