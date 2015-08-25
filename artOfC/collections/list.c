@@ -8,7 +8,7 @@ LinkedList* create_list(void* data, size_t size, int tag, LinkedListResult *resu
 	LinkedList* item = malloc(sizeof(*item));
 	LinkedListResult res;
 
-	if (item != NULL)
+	if (item)
 	{
 		res = LR_SUCCESS;
 
@@ -18,11 +18,11 @@ LinkedList* create_list(void* data, size_t size, int tag, LinkedListResult *resu
 		item->ref_count = 0;
 		item->next = NULL;
 
-		if (data != NULL && size > 0)
+		if (data && size > 0)
 		{
 			item->data = malloc(size);
 
-			if (item->data != NULL)
+			if (item->data)
 			{
 				res = LR_SUCCESS;
 
@@ -39,7 +39,7 @@ LinkedList* create_list(void* data, size_t size, int tag, LinkedListResult *resu
 		res = LR_NO_MEM;
 	}
 
-	if (result != NULL) { *result = res; }
+	if (result) { *result = res; }
 	return item;
 }
 
@@ -47,7 +47,7 @@ void destroy_list(LinkedList* item)
 {
 	item->ref_count--;
 
-	while (item != NULL && item->ref_count == 0)
+	while (item && item->ref_count == 0)
 	{
 		if (item->data)
 		{
@@ -55,11 +55,10 @@ void destroy_list(LinkedList* item)
 		}
 
 		LinkedList *item_to_remove = item;
-		item = item->next;
+		item = next(item);
 
 		free(item_to_remove);
 
-		item = item->next;
 		item->ref_count--;
 	}
 }
@@ -71,13 +70,13 @@ void aquire_list(LinkedList *item)
 
 LinkedList* insert_after(LinkedList *item, LinkedList *newItem)
 {
-	assert(item != NULL);
-	assert(newItem != NULL);
+	assert(item);
+	assert(newItem);
 
-	newItem->ref_count++;
+	aquire_list(newItem);
 
 	LinkedList *new_item_last = last_item(newItem);
-	LinkedList *item_next = item->next;
+	LinkedList *item_next = next(item);
 
 	item->next = newItem;
 	new_item_last->next = item_next;
@@ -89,13 +88,13 @@ LinkedList* remove_after(LinkedList *item)
 {
 	assert(item);
 
-	LinkedList *removing_item = item->next;
+	LinkedList *removing_item = next(item);
 
 	removing_item->ref_count--;
 
-	if (removing_item != NULL)
+	if (removing_item)
 	{
-		LinkedList *next_to_removing = item->next->next;
+		LinkedList *next_to_removing = next_nth(item, 2);
 		item->next = next_to_removing;
 	}
 
@@ -106,20 +105,20 @@ LinkedList* remove_n_after(LinkedList *item, int n)
 {
 	assert(item);
 
-	LinkedList *removing_items = item->next;
+	LinkedList *removing_items = next(item);
 
 	removing_items->ref_count--;
 
 	LinkedList *last_removing_item = next_nth(item, n);
 
-	item->next = last_removing_item == NULL ? NULL : last_removing_item->next;
+	item->next = last_removing_item ? NULL : last_removing_item->next;
 
 	return removing_items;
 }
 
 LinkedList* last_item(LinkedList* item)
 {
-	while (item != NULL && item->next != NULL)
+	while (item && next(item))
 	{
 		item = item->next;
 	}
@@ -127,11 +126,16 @@ LinkedList* last_item(LinkedList* item)
 	return item;
 }
 
+LinkedList* next(LinkedList* item)
+{
+	return item->next;
+}
+
 LinkedList* next_nth(LinkedList* item, int n)
 {
-	while (item != NULL && item->next != NULL && n > 0)
+	while (item && n > 0)
 	{
-		item = item->next;
+		item = next(item);
 		n--;
 	}
 
@@ -140,7 +144,7 @@ LinkedList* next_nth(LinkedList* item, int n)
 
 int for_each(LinkedList *item, LIST_ITEM_ACTION action)
 {
-	while (item != NULL)
+	while (item)
 	{
 		int result = (*action)(item);
 
@@ -149,7 +153,7 @@ int for_each(LinkedList *item, LIST_ITEM_ACTION action)
 			return result;
 		}
 
-		item = item->next;
+		item = next(item);
 	}
 
 	return 0;
@@ -157,14 +161,14 @@ int for_each(LinkedList *item, LIST_ITEM_ACTION action)
 
 LinkedList* find_first(LinkedList *item, LIST_ITEM_PRED pred)
 {
-	while (item != NULL)
+	while (item)
 	{
 		if ((*pred)(item))
 		{
 			break;
 		}
 
-		item = item->next;
+		item = next(item);
 	}
 
 	return item;

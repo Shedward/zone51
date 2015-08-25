@@ -5,7 +5,7 @@ $CFLAGS=-Wall
 
 # By default build and run every *_tests.c file.
 
-tests: $(patsubst %,run_%,$(basename $(wildcard *_tests.c))) | clean
+tests: $(patsubst %,run_%,$(basename $(wildcard *_tests.c)))
 
 clean:
 	rm -rf *.o 
@@ -14,7 +14,7 @@ clean:
 %.o : %.c
 	$(CC) -g -O -c $(CFLAGS) $< -o $@
 
-%.o :
+%.o : %.o
 	ld -r $? -o $@
 
 %_tests : %_tests.c %.o
@@ -22,6 +22,8 @@ clean:
 
 run_%_tests : %_tests
 	./$<
+	@echo  -- PASSED $@
+	@echo 
 
 
 # Dependencies

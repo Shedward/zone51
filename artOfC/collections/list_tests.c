@@ -21,8 +21,6 @@ int is_list_eq_str(LinkedList *list, char *str)
 {
 	while (1)
 	{
-		printf("%d : %d\n", *(char*)list->data, *str);
-
 		if (list == NULL && *str == '\0')
 		{
 			return 1;
@@ -63,7 +61,7 @@ void test_helper_function()
 void test_insert_remove()
 {
 	static char* const a = "hello ";
-	static char* const b = "world ";
+	static char* const b = "world";
 	static char* const ab = "hello world";
 	static char* const c = "hellworldo ";
 
@@ -86,12 +84,15 @@ void test_last_and_nth_item()
 
 	LinkedList *last = last_item(x_list);
 	assert(*(char*)last->data == '4');
+
+	LinkedList *next_to_last = next_nth(last, 1);
+	assert(next_to_last == NULL);
 }
 
 int main(int argc, char** argv)
 {
+	test_last_and_nth_item();
 	test_helper_function();
 	test_insert_remove();
-	test_last_and_nth_item();
 	return 0;
 }

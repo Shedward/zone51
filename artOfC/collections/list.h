@@ -129,6 +129,12 @@ LinkedList* remove_after(LinkedList* item);
 LinkedList* remove_n_after(LinkedList* item, int n);
 
 /*
+ * Return next item of list.
+ */
+
+LinkedList* next(LinkedList* item);
+
+/*
  * Return next nth item from start item.
  * With n = 0 return start item itself.
  * If there is no nth item, return NULL.
