@@ -91,6 +91,16 @@ LinkedList* create_list(void* data, size_t size, int tag, LinkedListResult *resu
 void destroy_list(LinkedList* item);
 
 /*
+ * Aquire list item ownership. It's prevent 
+ * automatic item deallocation from this item 
+ * and it's kids. After using this item must
+ * be destroying by destroy_list to prevent 
+ * memroy leaking.
+ */
+
+void aquire_list(LinkedList* item);
+
+/*
  * Insert all items from newItem to last_item(newItem) after item, 
  * If item have another item before it's add that item before new item. 
  * Return last inserted item.

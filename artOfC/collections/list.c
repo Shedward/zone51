@@ -64,6 +64,11 @@ void destroy_list(LinkedList* item)
 	}
 }
 
+void aquire_list(LinkedList *item)
+{
+	item->ref_count++;
+}
+
 LinkedList* insert_after(LinkedList *item, LinkedList *newItem)
 {
 	assert(item != NULL);
@@ -86,6 +91,8 @@ LinkedList* remove_after(LinkedList *item)
 
 	LinkedList *removing_item = item->next;
 
+	removing_item->ref_count--;
+
 	if (removing_item != NULL)
 	{
 		LinkedList *next_to_removing = item->next->next;
@@ -100,6 +107,9 @@ LinkedList* remove_n_after(LinkedList *item, int n)
 	assert(item);
 
 	LinkedList *removing_items = item->next;
+
+	removing_items->ref_count--;
+
 	LinkedList *last_removing_item = next_nth(item, n);
 
 	item->next = last_removing_item == NULL ? NULL : last_removing_item->next;
