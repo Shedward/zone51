@@ -1,12 +1,5 @@
 #include "avg_tree.h"
 
-avg_tree::avg_tree()
-{
+void avg_tree::calibrate() {
 
 }
-
-avg_tree::~avg_tree()
-{
-
-}
-

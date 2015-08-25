@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "avg_tree.h"
 
 int main(void)
 {
