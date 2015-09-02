@@ -1,0 +1,7 @@
+[package]
+name = "tests"
+version = "0.1.0"
+authors = ["Vlad Maltsev <shedwardx@gmail.com>"]
+
+[lib]
+name = "adder"
