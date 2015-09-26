@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD213B4319CDEADF00673728 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD213B4219CDEADF00673728 /* main.m */; };
+		AD213B4619CDEADF00673728 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD213B4519CDEADF00673728 /* AppDelegate.m */; };
+		AD213B4919CDEADF00673728 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD213B4819CDEADF00673728 /* QuizViewController.m */; };
+		AD213B4C19CDEADF00673728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD213B4A19CDEADF00673728 /* Main.storyboard */; };
+		AD213B4E19CDEADF00673728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD213B4D19CDEADF00673728 /* Assets.xcassets */; };
+		AD213B5C19CDEADF00673728 /* GuessNumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD213B5B19CDEADF00673728 /* GuessNumberTests.m */; };
+		AD213B7619CEE28900673728 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD213B7519CEE28900673728 /* MainViewController.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD213B5819CDEADF00673728 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD213B3619CDEADF00673728 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD213B3D19CDEADF00673728;
+			remoteInfo = GuessNumber;
+		};
+		AD213B6319CDEADF00673728 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD213B3619CDEADF00673728 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD213B3D19CDEADF00673728;
+			remoteInfo = GuessNumber;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AD213B3E19CDEADF00673728 /* GuessNumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessNumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD213B4219CDEADF00673728 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AD213B4419CDEADF00673728 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AD213B4519CDEADF00673728 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD213B4719CDEADF00673728 /* QuizViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuizViewController.h; sourceTree = "<group>"; };
+		AD213B4819CDEADF00673728 /* QuizViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuizViewController.m; sourceTree = "<group>"; };
+		AD213B4B19CDEADF00673728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AD213B4D19CDEADF00673728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD213B5219CDEADF00673728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD213B5719CDEADF00673728 /* GuessNumberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuessNumberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD213B5B19CDEADF00673728 /* GuessNumberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuessNumberTests.m; sourceTree = "<group>"; };
+		AD213B5D19CDEADF00673728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD213B6219CDEADF00673728 /* GuessNumberUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuessNumberUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD213B7419CEE28900673728 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		AD213B7519CEE28900673728 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD213B3B19CDEADF00673728 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD213B5419CDEADF00673728 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD213B5F19CDEADF00673728 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD213B3519CDEADF00673728 = {
+			isa = PBXGroup;
+			children = (
+				AD213B4019CDEADF00673728 /* GuessNumber */,
+				AD213B5A19CDEADF00673728 /* GuessNumberTests */,
+				AD213B3F19CDEADF00673728 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AD213B3F19CDEADF00673728 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD213B3E19CDEADF00673728 /* GuessNumber.app */,
+				AD213B5719CDEADF00673728 /* GuessNumberTests.xctest */,
+				AD213B6219CDEADF00673728 /* GuessNumberUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD213B4019CDEADF00673728 /* GuessNumber */ = {
+			isa = PBXGroup;
+			children = (
+				AD213B4419CDEADF00673728 /* AppDelegate.h */,
+				AD213B4519CDEADF00673728 /* AppDelegate.m */,
+				AD213B7419CEE28900673728 /* MainViewController.h */,
+				AD213B7519CEE28900673728 /* MainViewController.m */,
+				AD213B4719CDEADF00673728 /* QuizViewController.h */,
+				AD213B4819CDEADF00673728 /* QuizViewController.m */,
+				AD213B4A19CDEADF00673728 /* Main.storyboard */,
+				AD213B4D19CDEADF00673728 /* Assets.xcassets */,
+				AD213B5219CDEADF00673728 /* Info.plist */,
+				AD213B4119CDEADF00673728 /* Supporting Files */,
+			);
+			path = GuessNumber;
+			sourceTree = "<group>";
+		};
+		AD213B4119CDEADF00673728 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD213B4219CDEADF00673728 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD213B5A19CDEADF00673728 /* GuessNumberTests */ = {
+			isa = PBXGroup;
+			children = (
+				AD213B5B19CDEADF00673728 /* GuessNumberTests.m */,
+				AD213B5D19CDEADF00673728 /* Info.plist */,
+			);
+			path = GuessNumberTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AD213B3D19CDEADF00673728 /* GuessNumber */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD213B6B19CDEADF00673728 /* Build configuration list for PBXNativeTarget "GuessNumber" */;
+			buildPhases = (
+				AD213B3A19CDEADF00673728 /* Sources */,
+				AD213B3B19CDEADF00673728 /* Frameworks */,
+				AD213B3C19CDEADF00673728 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GuessNumber;
+			productName = GuessNumber;
+			productReference = AD213B3E19CDEADF00673728 /* GuessNumber.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AD213B5619CDEADF00673728 /* GuessNumberTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD213B6E19CDEADF00673728 /* Build configuration list for PBXNativeTarget "GuessNumberTests" */;
+			buildPhases = (
+				AD213B5319CDEADF00673728 /* Sources */,
+				AD213B5419CDEADF00673728 /* Frameworks */,
+				AD213B5519CDEADF00673728 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD213B5919CDEADF00673728 /* PBXTargetDependency */,
+			);
+			name = GuessNumberTests;
+			productName = GuessNumberTests;
+			productReference = AD213B5719CDEADF00673728 /* GuessNumberTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AD213B6119CDEADF00673728 /* GuessNumberUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD213B7119CDEADF00673728 /* Build configuration list for PBXNativeTarget "GuessNumberUITests" */;
+			buildPhases = (
+				AD213B5E19CDEADF00673728 /* Sources */,
+				AD213B5F19CDEADF00673728 /* Frameworks */,
+				AD213B6019CDEADF00673728 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD213B6419CDEADF00673728 /* PBXTargetDependency */,
+			);
+			name = GuessNumberUITests;
+			productName = GuessNumberUITests;
+			productReference = AD213B6219CDEADF00673728 /* GuessNumberUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD213B3619CDEADF00673728 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = vmaltsev;
+				TargetAttributes = {
+					AD213B3D19CDEADF00673728 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					AD213B5619CDEADF00673728 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = AD213B3D19CDEADF00673728;
+					};
+					AD213B6119CDEADF00673728 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = AD213B3D19CDEADF00673728;
+					};
+				};
+			};
+			buildConfigurationList = AD213B3919CDEADF00673728 /* Build configuration list for PBXProject "GuessNumber" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AD213B3519CDEADF00673728;
+			productRefGroup = AD213B3F19CDEADF00673728 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD213B3D19CDEADF00673728 /* GuessNumber */,
+				AD213B5619CDEADF00673728 /* GuessNumberTests */,
+				AD213B6119CDEADF00673728 /* GuessNumberUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD213B3C19CDEADF00673728 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD213B4E19CDEADF00673728 /* Assets.xcassets in Resources */,
+				AD213B4C19CDEADF00673728 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD213B5519CDEADF00673728 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD213B6019CDEADF00673728 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD213B3A19CDEADF00673728 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD213B4919CDEADF00673728 /* QuizViewController.m in Sources */,
+				AD213B4619CDEADF00673728 /* AppDelegate.m in Sources */,
+				AD213B4319CDEADF00673728 /* main.m in Sources */,
+				AD213B7619CEE28900673728 /* MainViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD213B5319CDEADF00673728 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD213B5C19CDEADF00673728 /* GuessNumberTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD213B5E19CDEADF00673728 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD213B5919CDEADF00673728 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD213B3D19CDEADF00673728 /* GuessNumber */;
+			targetProxy = AD213B5819CDEADF00673728 /* PBXContainerItemProxy */;
+		};
+		AD213B6419CDEADF00673728 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD213B3D19CDEADF00673728 /* GuessNumber */;
+			targetProxy = AD213B6319CDEADF00673728 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AD213B4A19CDEADF00673728 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD213B4B19CDEADF00673728 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AD213B6919CDEADF00673728 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AD213B6A19CDEADF00673728 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AD213B6C19CDEADF00673728 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GuessNumber/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = acme.GuessNumber;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AD213B6D19CDEADF00673728 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GuessNumber/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = acme.GuessNumber;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AD213B6F19CDEADF00673728 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GuessNumberTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = acme.GuessNumberTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuessNumber.app/GuessNumber";
+			};
+			name = Debug;
+		};
+		AD213B7019CDEADF00673728 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GuessNumberTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = acme.GuessNumberTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuessNumber.app/GuessNumber";
+			};
+			name = Release;
+		};
+		AD213B7219CDEADF00673728 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GuessNumberUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = acme.GuessNumberUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GuessNumber;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		AD213B7319CDEADF00673728 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GuessNumberUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = acme.GuessNumberUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GuessNumber;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD213B3919CDEADF00673728 /* Build configuration list for PBXProject "GuessNumber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD213B6919CDEADF00673728 /* Debug */,
+				AD213B6A19CDEADF00673728 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD213B6B19CDEADF00673728 /* Build configuration list for PBXNativeTarget "GuessNumber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD213B6C19CDEADF00673728 /* Debug */,
+				AD213B6D19CDEADF00673728 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD213B6E19CDEADF00673728 /* Build configuration list for PBXNativeTarget "GuessNumberTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD213B6F19CDEADF00673728 /* Debug */,
+				AD213B7019CDEADF00673728 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD213B7119CDEADF00673728 /* Build configuration list for PBXNativeTarget "GuessNumberUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD213B7219CDEADF00673728 /* Debug */,
+				AD213B7319CDEADF00673728 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD213B3619CDEADF00673728 /* Project object */;
+}
