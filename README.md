@@ -17,3 +17,5 @@
 [RWHaskell] Bryan O'Sullivan, John Goerzen & Don Stewart. Real World Haskell // 2009
 
 [RustByEx] // http://rustbyexample.com/
+
+[CompTheory] // Стюарт Т. Теория вычислений для программистов
