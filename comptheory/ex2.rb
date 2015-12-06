@@ -96,17 +96,39 @@ class DoNothing
 	end
 end
 
+class Assign < Struct.new(:name, :expression)
+	def to_s
+		"#{name} = #{expression}"
+	end
+
+	def inspect
+		"<#{self}>"
+	end
+
+	def reducible? 
+		true
+	end
+
+	def reduce(enviroment)
+		if expression.reducible?
+			[Assign.new(name, expression.reduce(enviroment)), enviroment]
+		else
+			[DoNothing.new, enviroment.merge({ name => expression})]
+		end
+	end
+end
+
 class Machine < Struct.new(:expression, :enviroment)
 	def step
-		self.expression = expression.reduce(enviroment)
+		self.expression, self.enviroment = expression.reduce(enviroment)
 	end
 
 	def run
 		while expression.reducible?
-			puts expression
+			puts "#{expression}: #{expression}"
 			step			
 		end
-		puts expression
+		puts "#{expression}: #{expression}"
 	end
 end
 
