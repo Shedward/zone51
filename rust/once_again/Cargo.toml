@@ -1,0 +1,7 @@
+[package]
+name = "once_again"
+version = "0.1.0"
+authors = ["Vlad Maltsev <shedwardx@gmail.com>"]
+
+[dependencies]
+rand = "0.3.0"
