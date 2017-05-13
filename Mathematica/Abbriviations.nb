@@ -1,0 +1,304 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11873,        296]
+NotebookOptionsPosition[     11128,        266]
+NotebookOutlinePosition[     11481,        282]
+CellTagsIndexPosition[     11438,        279]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"text1", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://vojnaimir.ru/files/book1.txt\>\"", ",", " ", "\"\<Text\>\"", 
+     ",", " ", 
+     RowBox[{"CharacterEncoding", "\[Rule]", "\"\<WindowsCyrillic\>\""}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"text2", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://vojnaimir.ru/files/book2.txt\>\"", ",", " ", "\"\<Text\>\"", 
+     ",", " ", 
+     RowBox[{
+     "CharacterEncoding", " ", "\[Rule]", " ", "\"\<WindowsCyrillic\>\""}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"text", " ", "=", " ", 
+   RowBox[{"text1", " ", "~~", " ", "text2"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.700145263163835*^9, 3.7001452703730307`*^9}, {
+   3.7001453095480633`*^9, 3.70014531311364*^9}, {3.700145423289412*^9, 
+   3.700145468078178*^9}, {3.700145541238307*^9, 3.700145550764439*^9}, {
+   3.7001455826526623`*^9, 3.700145590666687*^9}, {3.700146766425249*^9, 
+   3.700146814641564*^9}, 3.700146848657194*^9, 3.700151614258581*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"cyrillicLoCase", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<\:0419\>\"", "\[Rule]", "\"\<\:0439\>\""}], ",", 
+     RowBox[{"\"\<\:0426\>\"", "\[Rule]", "\"\<\:0446\>\""}], ",", 
+     RowBox[{"\"\<\:0423\>\"", "\[Rule]", "\"\<\:0443\>\""}], ",", 
+     RowBox[{"\"\<\:041a\>\"", "\[Rule]", "\"\<\:043a\>\""}], ",", 
+     RowBox[{"\"\<\:0415\>\"", "\[Rule]", "\"\<\:0435\>\""}], ",", 
+     RowBox[{"\"\<\:041d\>\"", "\[Rule]", "\"\<\:043d\>\""}], ",", 
+     RowBox[{"\"\<\:0413\>\"", "\[Rule]", "\"\<\:0433\>\""}], ",", 
+     RowBox[{"\"\<\:0428\>\"", "\[Rule]", "\"\<\:0448\>\""}], ",", 
+     RowBox[{"\"\<\:0429\>\"", "\[Rule]", "\"\<\:0449\>\""}], ",", 
+     RowBox[{"\"\<\:0417\>\"", "\[Rule]", "\"\<\:0437\>\""}], ",", 
+     RowBox[{"\"\<\:0425\>\"", "\[Rule]", "\"\<\:0445\>\""}], ",", 
+     RowBox[{"\"\<\:042a\>\"", "\[Rule]", "\"\<\:044a\>\""}], ",", 
+     RowBox[{"\"\<\:0424\>\"", "\[Rule]", "\"\<\:0444\>\""}], ",", 
+     RowBox[{"\"\<\:042b\>\"", "\[Rule]", "\"\<\:044b\>\""}], ",", 
+     RowBox[{"\"\<\:0412\>\"", "\[Rule]", "\"\<\:0432\>\""}], ",", 
+     RowBox[{"\"\<\:0410\>\"", "\[Rule]", "\"\<\:0430\>\""}], ",", 
+     RowBox[{"\"\<\:041f\>\"", "\[Rule]", "\"\<\:043f\>\""}], ",", 
+     RowBox[{"\"\<\:0420\>\"", "\[Rule]", "\"\<\:0440\>\""}], ",", 
+     RowBox[{"\"\<\:041e\>\"", "\[Rule]", "\"\<\:043e\>\""}], ",", 
+     RowBox[{"\"\<\:041b\>\"", "\[Rule]", "\"\<\:043b\>\""}], ",", 
+     RowBox[{"\"\<\:0414\>\"", "\[Rule]", "\"\<\:0434\>\""}], ",", 
+     RowBox[{"\"\<\:0416\>\"", "\[Rule]", "\"\<\:0436\>\""}], ",", 
+     RowBox[{"\"\<\:042d\>\"", "\[Rule]", "\"\<\:044d\>\""}], ",", 
+     RowBox[{"\"\<\:0401\>\"", "\[Rule]", "\"\<\:0451\>\""}], ",", 
+     RowBox[{"\"\<\:042f\>\"", "\[Rule]", "\"\<\:044f\>\""}], ",", 
+     RowBox[{"\"\<\:0427\>\"", "\[Rule]", "\"\<\:0447\>\""}], ",", 
+     RowBox[{"\"\<\:0421\>\"", "\[Rule]", "\"\<\:0441\>\""}], ",", 
+     RowBox[{"\"\<\:041c\>\"", "\[Rule]", "\"\<\:043c\>\""}], ",", 
+     RowBox[{"\"\<\:0418\>\"", "\[Rule]", "\"\<\:0438\>\""}], ",", 
+     RowBox[{"\"\<\:0422\>\"", "\[Rule]", "\"\<\:0442\>\""}], ",", 
+     RowBox[{"\"\<\:042c\>\"", "\[Rule]", "\"\<\:044c\>\""}], ",", 
+     RowBox[{"\"\<\:0411\>\"", "\[Rule]", "\"\<\:0431\>\""}], ",", 
+     RowBox[{"\"\<\:042e\>\"", "\[Rule]", "\"\<\:044e\>\""}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CyrToLowerCase", "[", "str_", "]"}], ":=", " ", 
+  RowBox[{"StringReplace", "[", 
+   RowBox[{"str", ",", " ", "cyrillicLoCase"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.7001475586879873`*^9, 3.700147567846332*^9}, {
+  3.7001478083940897`*^9, 3.700147828209683*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"words", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"StringSplit", "[", "text", "]"}], " ", "//", " ", 
+    "CyrToLowerCase"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.700145279037909*^9, 3.700145353045689*^9}, {
+   3.700145396474389*^9, 3.700145404976198*^9}, {3.700145490623028*^9, 
+   3.700145512681135*^9}, {3.700145594770712*^9, 3.700145602834528*^9}, {
+   3.700145645460713*^9, 3.700145650259053*^9}, 3.70014612890291*^9, {
+   3.7001475712136993`*^9, 3.700147583965119*^9}, {3.7001478245522203`*^9, 
+   3.700147834406488*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SuffixQ", "[", 
+   RowBox[{"str_", ",", " ", "suff_"}], "]"}], ":=", 
+  RowBox[{"StringMatchQ", "[", 
+   RowBox[{"str", ",", " ", 
+    RowBox[{"StartOfString", " ", "~~", " ", "suff", " ", "~~", " ", "__"}]}],
+    "]"}]}]], "Input",
+ CellChangeTimes->{{3.7001476742628927`*^9, 3.7001477232181797`*^9}, {
+  3.7001477620569267`*^9, 3.7001477849765463`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FindAbbreviations", "[", 
+   RowBox[{"words_", ",", " ", "nameParts_List"}], "]"}], ":=", " ", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"tWindows", ",", " ", "tFound", ",", " ", 
+      RowBox[{"tWords", " ", "=", " ", "words"}], ",", " ", 
+      RowBox[{"tSuffixes", " ", "=", " ", "nameParts"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"tWindows", " ", "=", " ", 
+      RowBox[{"MovingMap", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Transpose", "[", 
+          RowBox[{"{", 
+           RowBox[{"#", ",", " ", "tSuffixes"}], "}"}], "]"}], "&"}], ",", 
+        "tWords", ",", " ", 
+        RowBox[{
+         RowBox[{"Length", "[", "tSuffixes", "]"}], " ", "-", " ", "1"}]}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"tFound", " ", "=", " ", 
+      RowBox[{"Cases", "[", " ", 
+       RowBox[{"tWindows", ",", " ", 
+        RowBox[{"pair_", " ", "/;", " ", 
+         RowBox[{"AllTrue", "[", 
+          RowBox[{"pair", ",", " ", 
+           RowBox[{
+            RowBox[{"SuffixQ", "@@", "#"}], "&"}]}], "]"}]}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"First", "@", 
+        RowBox[{"Transpose", "@", "#"}]}], "&"}], "/@", "tFound"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7001478780507507`*^9, 3.700147896942403*^9}, {
+  3.700147958862563*^9, 3.700148025171071*^9}, {3.700148083307671*^9, 
+  3.700148155439925*^9}, {3.7001482778225946`*^9, 3.7001484207447863`*^9}, {
+  3.700148567111597*^9, 3.700148650640727*^9}, {3.700148714618973*^9, 
+  3.700148767623053*^9}, {3.700150807949815*^9, 3.7001508837292433`*^9}, {
+  3.7001510513895197`*^9, 3.700151092466213*^9}, {3.700151198944167*^9, 
+  3.7001512000453253`*^9}, {3.700151511251041*^9, 3.700151533099333*^9}, {
+  3.7001860154697657`*^9, 3.700186020327702*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FindAbbreviations", "[", 
+   RowBox[{"words", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"\"\<\:043c\>\"", ",", " ", "\"\<\:0443\:0441\:0430\>\""}], 
+     "}"}]}], "]"}], " ", "//", " ", "TableForm"}]], "Input",
+ CellChangeTimes->{{3.700148317905649*^9, 3.7001483179066877`*^9}, {
+   3.700148793391164*^9, 3.700148796702166*^9}, {3.700148874941434*^9, 
+   3.700148972440943*^9}, {3.700149002539453*^9, 3.7001490392086773`*^9}, {
+   3.7001491347423677`*^9, 3.700149156073717*^9}, {3.70014919776484*^9, 
+   3.700149320877323*^9}, {3.700149368960854*^9, 3.7001494019006166`*^9}, 
+   3.7001494453089933`*^9, {3.700149682148287*^9, 3.700149694673892*^9}, {
+   3.700150521279237*^9, 3.700150585876109*^9}, {3.700150616916811*^9, 
+   3.700150634581153*^9}, {3.7001507105924397`*^9, 3.7001507107834682`*^9}, {
+   3.7001508691887913`*^9, 3.70015090316704*^9}, {3.7001509537699823`*^9, 
+   3.700150988461501*^9}, {3.700151119595704*^9, 3.7001511440799017`*^9}, {
+   3.700151204503634*^9, 3.7001512437333097`*^9}, {3.700151369841917*^9, 
+   3.700151401022657*^9}, {3.700151546347166*^9, 3.700151575385084*^9}, {
+   3.7001516517356253`*^9, 3.700151805264481*^9}, {3.70015186051101*^9, 
+   3.7001518635743732`*^9}, {3.7001519522550097`*^9, 3.700151962005253*^9}, {
+   3.7001520483780127`*^9, 3.7001520487932873`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"\:043c\:043e\:044e\"\>", "\<\"\:0443\:0441\:0430\:0434\:044c\:0431\
+\:0443?\"\>"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.700152083505253*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FindAbbreviations", "[", 
+   RowBox[{"words", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"\"\<\:043c\:0443\>\"", ",", " ", "\"\<\:0441\:0430\>\""}], 
+     "}"}]}], "]"}], " ", "//", " ", "TableForm"}]], "Input",
+ CellChangeTimes->{{3.700152053992803*^9, 3.7001520551355047`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"\:043c\:0443\:0447\:0438\:0442\:0435\:043b\:044c,\"\>", "\<\"\:0441\
+\:0430\:043c\:044b\:0439\"\>"},
+    {"\<\"\:043c\:0443\:0447\:0435\:043d\:0438\:0447\:0435\:0441\:0442\:0432\
+\:0430\"\>", \
+"\<\"\:0441\:0430\:043c\:043e\:0443\:0432\:0435\:0440\:0435\:043d\:043d\:044b\
+\:0445\"\>"},
+    {"\<\"\:043c\:0443\:0436\:0430,\"\>", "\<\"\:0441\:0430\:043c\:0430\"\>"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.700152088925291*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FindAbbreviations", "[", 
+   RowBox[{"words", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<\:043c\:0443\>\"", ",", " ", "\"\<\:0441\>\"", ",", " ", 
+      "\"\<\:0430\>\""}], "}"}]}], "]"}], " ", "//", " ", 
+  "TableForm"}]], "Input",
+ CellChangeTimes->{{3.7001520665190477`*^9, 3.7001520746069107`*^9}, {
+  3.700186039864326*^9, 3.7001860514319553`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"{", "}"}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.700152096343362*^9, 3.700186059354944*^9}]
+}, Open  ]]
+},
+WindowSize->{830, 815},
+WindowMargins->{{28, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 28, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1102, 25, 117, "Input"],
+Cell[1663, 47, 2661, 44, 143, "Input"],
+Cell[4327, 93, 564, 11, 32, "Input"],
+Cell[4894, 106, 390, 9, 32, "Input"],
+Cell[5287, 117, 1940, 44, 138, "Input"],
+Cell[CellGroupData[{
+Cell[7252, 165, 1338, 21, 32, "Input"],
+Cell[8593, 188, 637, 17, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9267, 210, 313, 7, 32, "Input"],
+Cell[9583, 219, 920, 22, 78, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10540, 246, 398, 10, 32, "Input"],
+Cell[10941, 258, 171, 5, 43, "Output"]
+}, Open  ]]
+}
+]
+*)
+
