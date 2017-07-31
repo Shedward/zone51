@@ -5,3 +5,5 @@
 **.autosave
 **.user
 **.o
+**/target
+**/.idea
