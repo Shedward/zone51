@@ -1,8 +1,0 @@
-[package]
-name = "concurency"
-version = "0.1.0"
-authors = ["Vlad Maltsev <shedwardx@gmail.com>"]
-
-[lib]
-name = "embed"
-crate-type = ["dylib"]
