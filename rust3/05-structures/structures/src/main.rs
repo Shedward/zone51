@@ -44,8 +44,8 @@ fn count_words(string: String) -> HashMap<String, i32> {
     let mut count = HashMap::new();
     string.split_ascii_whitespace().for_each(|word| {
         let norm_word = word.to_lowercase();
-        let val = count.get(&norm_word).unwrap_or(&0);
-        count.insert(norm_word, *val + 1);
+        let val = *count.get(&norm_word).unwrap_or(&0);
+        count.insert(norm_word, val + 1);
     });
     return count;
 }
