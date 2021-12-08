@@ -14,6 +14,10 @@ func map<A, B>(_ f: @escaping (A) -> B) -> ([A]) -> [B] {
 	{ xs in xs.map(f) }
 }
 
+func map<A, B>(_ f: @escaping (A) -> B) -> (A?) -> B? {
+	{ xs in xs.map(f) }
+}
+
 func atIndex<A>(_ index: Int) -> (@escaping (A) -> A) -> ([A]) -> [A] {
 	{ f in
 		{ xs in
@@ -24,6 +28,28 @@ func atIndex<A>(_ index: Int) -> (@escaping (A) -> A) -> ([A]) -> [A] {
 					return value
 				}
 			}
+		}
+	}
+}
+
+func atKeyIfExist<K,V>(_ key: K) -> (@escaping (V) -> V) -> ([K:V]) -> [K:V] {
+	{ f in
+		{ xs in
+			var ys = xs
+			if let value = xs[key] {
+				ys[key] = f(value)
+			}
+			return ys
+		}
+	}
+}
+
+func atKey<K,V>(_ key: K) -> (@escaping (V?) -> V?) -> ([K:V]) -> [K:V] {
+	{ f in
+		{ xs in
+			var ys = xs
+			ys[key] = f(ys[key])
+			return ys
 		}
 	}
 }
